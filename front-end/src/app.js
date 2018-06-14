@@ -3,7 +3,6 @@ import axios from 'axios';
 
 
 
-
  setTimeout(  axios.get('http://localhost:8080/news')
 	 .then((resp)=> afficherNews(resp.data)),5000);
 	 

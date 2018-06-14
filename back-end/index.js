@@ -40,17 +40,21 @@ const wsServer = initWSServer()
 let clients = []
 
 wsServer.on('connection', (webSocket) => {
+	
     console.log('WebSocket Server :: a new client has connected')
-    
     webSocket.onclose = (event) => {
         console.log('WebSocket :: client disconnected')
         clients = clients.filter((client) => client !== webSocket)
     }
     webSocket.onmessage = (message) => {
+		    webSocket.send("y a du nouveau")
+
         console.log('WebSocket :: got a new message', message.data)
     }
     clients.push(webSocket)
+	
 })
+
 
 
 // Servers log
