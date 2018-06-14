@@ -8,6 +8,7 @@
   },
   "author": "",
   "license": "MIT",
+  "repository":"https://github.com/jiangwei4/Projet-NewsFeed",
   "dependencies": {
     "axios": "^0.18.0",
     "body-parser": "^1.18.3",
