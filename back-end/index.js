@@ -47,13 +47,16 @@ wsServer.on('connection', (webSocket) => {
         clients = clients.filter((client) => client !== webSocket)
     }
     webSocket.onmessage = (message) => {
-		    webSocket.send("y a du nouveau")
-
         console.log('WebSocket :: got a new message', message.data)
     }
     clients.push(webSocket)
 	
 })
+
+wsServer.onopen = function () {
+  wsServer.send("Voici un texte que le serveur attend de recevoir dès que possible !"); 
+};
+
 
 
 
