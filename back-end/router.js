@@ -79,8 +79,7 @@ router.route('/news').get(function(request, response) {
 })
 router.route('/news/:id').get(function(request, response) {
 	let id = request.params.id.substring(3,request.params.id.length);
-	axios.get('https://newsapi.org/v2/everything?sources=nhl-news&apiKey=fad34baee5e84580a347aa0f0714a6ee')
-			.then((resp)=>response.send(resp.data.articles[id]));
+			response.send(ancien.articles[id])
 })
 
 module.exports = router
