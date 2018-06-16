@@ -16,9 +16,6 @@ function sendMessage(msg){
 }
 
 
-
-
- 
 let ancien;
 let boolNouveau = true;
 
@@ -69,10 +66,7 @@ router.route('/news').get(function(request, response) {
 	if(boolNouveau){
 	axios.get('https://newsapi.org/v2/everything?sources=nhl-news&apiKey=fad34baee5e84580a347aa0f0714a6ee')
 			.then((resp)=>response.send(resp.data))
-			console.log("chargment")
 	} else {
-		console.log("pas de chargement")
-		//promiseAncien().then(response.send(ancien))
 		response.send(ancien)
 	}
 	
