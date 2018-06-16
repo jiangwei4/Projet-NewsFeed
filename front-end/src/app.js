@@ -2,12 +2,18 @@
 import axios from 'axios';
 
 
+const ws = new WebSocket('ws://localhost:8888')
 
- setTimeout( axios.get('http://localhost:8080/news')
-	 .then((resp)=> afficherNews(resp.data)),5000);
-	 
-	 
-	 
+
+
+ws.onmessage= (message) =>  {
+        alert(message.data)
+}
+
+
+
+ axios.get('http://localhost:8080/news')
+	 .then((resp)=> afficherNews(resp.data));
 		
  function afficherNews(raw) {
 	let affichage="<table><tr>"; 

@@ -1,0 +1,12 @@
+s'il y a eu des nouvelles news la webSocket du fichier router.js 
+va send un # sur le serveur 
+
+un # que je teste dans webSocket.onmessage du fichier index.js
+et qui va envoyer un message à tous les clients ('il y a des nouvelles news merci de recharger la page')
+
+message que je recupere dans le fichier app.js et que j'affiche avec un alert(message.data)
+
+
+
+pour tester cela il suffit de faire un websocket.send('#') depuis la console google 
+

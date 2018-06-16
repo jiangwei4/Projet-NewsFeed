@@ -35,30 +35,30 @@ function initWSServer() {
 const httpServer = initHttpServer()
 const wsServer = initWSServer()
 
+
 // WebSocket Server events binding
 
 let clients = []
 
 wsServer.on('connection', (webSocket) => {
-	
     console.log('WebSocket Server :: a new client has connected')
     webSocket.onclose = (event) => {
         console.log('WebSocket :: client disconnected')
         clients = clients.filter((client) => client !== webSocket)
     }
-    webSocket.onmessage = (message) => {
+    webSocket.onmessage = (message) => {		
         console.log('WebSocket :: got a new message', message.data)
+		if (message.data.charAt(0)=='#')
+			sendClient('il y a des nouvelles news merci de recharger la page')
     }
     clients.push(webSocket)
-	
 })
 
-wsServer.onopen = function () {
-  wsServer.send("Voici un texte que le serveur attend de recevoir dès que possible !"); 
-};
-
-
-
+function sendClient(msg){
+		for (let i=0; i< clients.length; i++){
+			clients[i].send(msg)
+		}
+}
 
 // Servers log
 console.log(`HTTP server listening on ${config.http.host}:${config.http.port}`)
