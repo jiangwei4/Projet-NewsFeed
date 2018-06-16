@@ -8,6 +8,7 @@ const ws = new WebSocket('ws://localhost:8888')
 
 ws.onmessage= (message) =>  {
         alert(message.data)
+		retourNew();
 }
 
 
@@ -95,5 +96,6 @@ window.afficherNew = function afficherNew(i){
 
 window.retourNew = function retourNew(){
 	
-	window.location.reload(true);
+	axios.get('http://localhost:8080/news')
+	 .then((resp)=> afficherNews(resp.data));
 }

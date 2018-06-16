@@ -49,7 +49,7 @@ wsServer.on('connection', (webSocket) => {
     webSocket.onmessage = (message) => {		
         console.log('WebSocket :: got a new message', message.data)
 		if (message.data.charAt(0)=='#')
-			sendClient('il y a des nouvelles news merci de recharger la page')
+			sendClient('il y a des nouvelles news, la page va se recharger')
     }
     clients.push(webSocket)
 })
